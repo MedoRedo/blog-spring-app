@@ -1,11 +1,10 @@
 package com.programming.spring.controller;
 
-import com.programming.spring.dto.AuthenticationRequest;
-import com.programming.spring.dto.AuthenticationResponse;
-import com.programming.spring.dto.RegisterRequest;
+import com.programming.spring.mapstruct.dto.LoginRequest;
+import com.programming.spring.mapstruct.dto.AuthenticationResponse;
+import com.programming.spring.mapstruct.dto.RegisterRequest;
 import com.programming.spring.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +26,11 @@ public class AuthenticationController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
-        return null;
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest request){
+        log.info("Login Endpoint...");
+        var response = authenticationService.login(request);
+        return ResponseEntity.ok(response);
     }
 
 }

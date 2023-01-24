@@ -1,13 +1,14 @@
 package com.programming.spring.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 @Entity
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PostEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

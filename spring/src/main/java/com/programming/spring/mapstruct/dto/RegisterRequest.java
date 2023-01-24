@@ -1,4 +1,4 @@
-package com.programming.spring.dto;
+package com.programming.spring.mapstruct.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
